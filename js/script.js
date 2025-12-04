@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Données du QCM extraites du document
+    // Données du QCM
     const questionsData = [
         {
             question: "Quel est ton niveau sportif actuel ?",
@@ -97,41 +97,32 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     let currentQuestionIndex = 0;
-    const userAnswers = []; // Pour stocker les réponses de l'utilisateur
+    const userAnswers = []; // Stocke les index des réponses (0, 1, 2, 3)
 
     // Sélection des éléments du DOM
     const questionTextEl = document.getElementById('question-text');
     const answersContainerEl = document.getElementById('answers-container');
     const prevButtonEl = document.getElementById('btn-previous');
     const currentStepEl = document.getElementById('current-step');
-    const quizContainer = document.getElementById('quiz-container');
-    const resultSection = document.getElementById('result-section');
 
     // Fonction pour charger une question
     function loadQuestion(index) {
         const currentData = questionsData[index];
 
-        // Mise à jour du texte de la question et du compteur
         questionTextEl.textContent = `Question ${index + 1} : ${currentData.question}`;
         currentStepEl.textContent = index + 1;
-
-        // Vider les anciennes réponses
         answersContainerEl.innerHTML = '';
 
-        // Créer les boutons pour chaque réponse
         currentData.answers.forEach((answer, i) => {
             const button = document.createElement('button');
             button.classList.add('btn-answer');
             button.textContent = answer;
-            button.setAttribute('data-index', i);
-
-            // Ajouter l'événement de clic
-            button.addEventListener('click', () => handleAnswerClick(i, answer));
-
+            // On passe l'index de la réponse (0 pour A, 1 pour B...)
+            button.addEventListener('click', () => handleAnswerClick(i));
             answersContainerEl.appendChild(button);
         });
 
-        // Gérer l'affichage du bouton "Précédent"
+        // Gestion du bouton précédent
         if (index === 0) {
             prevButtonEl.style.display = 'none';
         } else {
@@ -140,12 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Gestion du clic sur une réponse
-    function handleAnswerClick(selectedIndex, answerText) {
-        // Enregistrer la réponse
-        userAnswers[currentQuestionIndex] = answerText;
-        console.log(`Réponse Q${currentQuestionIndex + 1}: ${answerText}`);
+    function handleAnswerClick(selectedIndex) {
+        userAnswers.push(selectedIndex);
 
-        // Passer à la question suivante ou finir
         if (currentQuestionIndex < questionsData.length - 1) {
             currentQuestionIndex++;
             loadQuestion(currentQuestionIndex);
@@ -154,23 +142,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Gestion du bouton précédent
+    // Gestion du bouton précédent (Annuler l'action)
     prevButtonEl.addEventListener('click', function () {
         if (currentQuestionIndex > 0) {
+            userAnswers.pop(); // Retire la dernière réponse du tableau
             currentQuestionIndex--;
             loadQuestion(currentQuestionIndex);
         }
     });
 
-    // Fonction de fin de quiz
+    // Fonction finale : calcul et redirection
     function finishQuiz() {
-        console.log("Quiz terminé. Réponses :", userAnswers);
-        quizContainer.style.display = 'none';
-        resultSection.style.display = 'block';
-        // Ici, vous pourrez ajouter la logique pour calculer le profil (A, B, C, D) 
-        // basé sur les réponses stockées dans userAnswers.
+        // 1. Calculer le profil majoritaire
+        let counts = [0, 0, 0, 0]; // [A, B, C, D]
+        userAnswers.forEach(index => {
+            if (index >= 0 && index <= 3) counts[index]++;
+        });
+
+        // Trouver l'index gagnant
+        let maxScore = -1;
+        let winningIndex = 0;
+
+        for (let i = 0; i < counts.length; i++) {
+            if (counts[i] > maxScore) {
+                maxScore = counts[i];
+                winningIndex = i;
+            }
+        }
+
+        // 2. Définir les ancres correspondantes (doivent matcher les IDs dans conseils.html)
+        const anchors = ['profil-a', 'profil-b', 'profil-c', 'profil-d'];
+        const targetAnchor = anchors[winningIndex];
+
+        // 3. Redirection vers la page conseils à l'endroit précis
+        console.log(`Profil gagnant : ${winningIndex} -> Redirection vers conseils.html#${targetAnchor}`);
+        window.location.href = `conseils.html#${targetAnchor}`;
     }
 
-    // Initialisation : charger la première question
-    loadQuestion(currentQuestionIndex);
+    // Démarrage
+    loadQuestion(0);
 });

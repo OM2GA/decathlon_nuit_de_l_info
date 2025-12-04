@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils Personnalisés - Decathlon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Style pour mettre en valeur le profil ciblé lors du scroll */
+        section:target {
+            animation: highlight 2s ease-out;
+            border-left: 5px solid var(--decathlon-blue);
+            padding-left: 15px;
+        }
+
+        @keyframes highlight {
+            0% {
+                background-color: rgba(54, 67, 186, 0.2);
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .profile-section {
+            margin-bottom: 60px;
+            padding-top: 20px;
+            /* Espace pour l'ancre */
+        }
+
+        .profile-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-decathlon sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../images/decathlon blanco.png" alt="Decathlon Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Conseils</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title text-center mb-5">Vos Instructions Personnalisées</h1>
+            <p class="text-center lead mb-5">Voici les programmes adaptés aux différents profils sportifs.</p>
+
+            <section id="profil-a" class="profile-section">
+                <div class="profile-header">
+                    <h2 style="color: var(--decathlon-blue);">PROFIL A — Débutant</h2>
+                    <h4 class="text-muted">Remise en forme / activité douce / faible intensité</h4>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <p class="card-text">Reprendre en douceur, sans impact, en installant les bonnes bases.</p>
+
+                        <hr>
+
+                        <h5 class="fw-bold mt-4">📝 Instructions personnalisées</h5>
+                        <ul>
+                            <li>Garde un rythme lent et régulier, sans chercher à aller trop vite.</li>
+                            <li>Garde une posture stable : dos aligné, épaules détendues et regard droit devant toi.
+                            </li>
+                            <li>Respire naturellement, en accompagnant chaque mouvement avec une inspiration et une
+                                expiration fluides.</li>
+                            <li>Si un exercice te paraît difficile ou instable, réduit l’amplitude ou ralentis pour
+                                rester en contrôle.</li>
+                            <li>Contente-toi de formats courts : 20 à 30 secondes d’effort ou 6 à 8 répétitions
+                                suffisent largement.</li>
+                            <li>Fais une petite pause de 10 à 20 secondes dès que tu en ressens le besoin.</li>
+                            <li>Privilégie des mouvements très accessibles : demi-squats, fentes statiques, gainage sur
+                                les genoux, exercices de mobilité simples.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profil-b" class="profile-section">
+                <div class="profile-header">
+                    <h2 style="color: var(--decathlon-blue);">PROFIL B — Intermédiaire</h2>
+                    <h4 class="text-muted">Amélioration générale / cardio + renfo / intensité modérée</h4>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <p class="card-text">Progresser régulièrement, renforcement + cardio léger.</p>
+
+                        <hr>
+
+                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <ul>
+                            <li>Garde une cadence fluide, peu de pauses.</li>
+                            <li>Engage les abdos pour stabiliser la posture.</li>
+                            <li>Descente contrôlée (2 sec), remontée propre.</li>
+                            <li>Travaille en amplitude confortable.</li>
+                            <li>Formats : 30–40 sec ou 10–12 reps.</li>
+                            <li>Mélange renfo + cardio : squats, fentes, planche, montées de genoux.</li>
+                            <li>Haltères : charge maîtrisée pour garder la technique.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profil-c" class="profile-section">
+                <div class="profile-header">
+                    <h2 style="color: var(--decathlon-blue);">PROFIL C — Avancé</h2>
+                    <h4 class="text-muted">Performance physique / musculation ou HIIT contrôlé / intensité élevée</h4>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <p class="card-text">Développer force, puissance ou HIIT contrôlé.</p>
+
+                        <hr>
+
+                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <ul>
+                            <li>Utilise un tempo précis : 3 sec descente / 1 sec pause / montée explosive.</li>
+                            <li>Garde un gainage fort pour protéger le dos.</li>
+                            <li>Travaille en amplitude complète.</li>
+                            <li>Formats : 12–15 reps ou 40–60 sec.</li>
+                            <li>En HIIT : technique impeccable même fatigué.</li>
+                            <li>Ajuste l’intensité : charge, hauteur des sauts, temps d’effort, récup 20–30 sec.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profil-d" class="profile-section">
+                <div class="profile-header">
+                    <h2 style="color: var(--decathlon-blue);">PROFIL D — Expert</h2>
+                    <h4 class="text-muted">Optimisation / compétition / matériel avancé</h4>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <p class="card-text">Maximiser la performance, travail technique avancé.</p>
+
+                        <hr>
+
+                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <ul>
+                            <li>Un objectif clair par séance (force, puissance, technique).</li>
+                            <li>Échauffement en 3 phases : mobilité → activation → charge progressive.</li>
+                            <li>Sur charges lourdes : gainage avant chaque rep, trajectoire parfaite, garder 1–2 reps en
+                                réserve.</li>
+                            <li>Utilise des formats avancés : supersets, pyramides, tempo, iso.</li>
+                            <li>Note les performances pour suivre la progression.</li>
+                            <li>Priorité absolue : qualité technique à chaque répétition.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer-decathlon">
+        <div class="container text-center">
+            <img src="../images/decathlon blanco.png" alt="Decathlon Logo" class="footer-logo">
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
