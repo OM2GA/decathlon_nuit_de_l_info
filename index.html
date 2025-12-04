@@ -4,10 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire Decathlon</title>
+    <title>Decathlon - Accueil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .landing-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .btn-welcome {
+            background-color: var(--decathlon-blue);
+            color: var(--white);
+            font-size: 1.5rem;
+            padding: 15px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            font-weight: 700;
+        }
+
+        .btn-welcome:hover {
+            background-color: #2a35a0;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: var(--white);
+        }
+    </style>
 </head>
 
 <body>
@@ -23,10 +53,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Accueil</a>
+                            <a class="nav-link active" href="#">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Questionnaire</a>
+                            <a class="nav-link" href="html/questionnaire.html">Questionnaire</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Conseils</a>
@@ -38,34 +68,12 @@
     </header>
 
     <main class="main-content">
-        <div class="container">
-            <h1 class="page-title text-center">Votre Profil Sportif</h1>
-
-            <div class="row align-items-start" id="quiz-container">
-                <div class="col-lg-5">
-                    <div class="question-section">
-                        <p class="text-muted mb-2">Question <span id="current-step">1</span> / 10</p>
-
-                        <h2 class="question-text" id="question-text">Chargement de la question...</h2>
-
-                        <div class="answers-container" id="answers-container">
-                        </div>
-
-                        <button class="btn-previous" id="btn-previous" style="display: none;">Précédent</button>
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-                    <div class="image-placeholder">
-                    </div>
-                </div>
-            </div>
-
-            <div id="result-section" class="text-center" style="display: none;">
-                <h2>Merci d'avoir répondu !</h2>
-                <p>Vos réponses ont été enregistrées.</p>
-                <button class="btn btn-primary mt-3" onclick="location.reload()">Recommencer</button>
-            </div>
+        <div class="container landing-container">
+            <h1 class="page-title mb-5">Bienvenue chez Decathlon</h1>
+            <p class="lead mb-5">Découvrez votre profil sportif idéal en quelques minutes.</p>
+            <a href="html/questionnaire.html" class="btn-welcome">
+                Commencer le questionnaire
+            </a>
         </div>
     </main>
 
@@ -76,7 +84,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
 </body>
 
 </html>
