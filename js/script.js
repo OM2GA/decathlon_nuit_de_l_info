@@ -2,10 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Données du QCM
+    // Données du QCM avec les images associées
     const questionsData = [
         {
             question: "Quel est ton niveau sportif actuel ?",
+            image: "../images/question_1.png",
             answers: [
                 "Débutant(e) – Je démarre ou je reprends",
                 "Intermédiaire – Je pratique régulièrement",
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quel est ton principal objectif ?",
+            image: "../images/question_2.png",
             answers: [
                 "Remise en forme légère",
                 "Amélioration générale",
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quel type de sport pratiques-tu le plus souvent ?",
+            image: "../images/question_3.png",
             answers: [
                 "Activité douce (marche, yoga léger)",
                 "Cardio modéré/ renforcement léger",
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Combien de séances par semaine fais-tu en général ?",
+            image: "../images/question_4.png",
             answers: [
                 "0- 1 fois par semaine",
                 "2 - 3 fois par semaine",
@@ -42,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quelle est la durée moyenne de tes séances ?",
+            image: "../images/question_5.png",
             answers: [
                 "< 20min",
                 "20-40 min",
@@ -51,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quel est ton lieu d'entraînement principal ?",
+            image: "../images/question_6.png",
             answers: [
                 "A la maison, sans matériel",
                 "Maison / extérieur avec un petit matériel",
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quel matériel as-tu à disposition ?",
+            image: "../images/question_7.png",
             answers: [
                 "Aucun",
                 "Elastiques / petit matériel",
@@ -69,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Quelles sont les zones que tu veux prioriser ?",
+            image: "../images/question_8.png",
             answers: [
                 "Mobilité / bien-être",
                 "Tonicité globale",
@@ -78,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Intensité préférée ?",
+            image: "../images/question_9.png",
             answers: [
                 "Faible",
                 "Modérée",
@@ -87,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             question: "Ton niveau de motivation ?",
+            image: "../images/question_10.png",
             answers: [
                 "Je veux commencer tranquillement",
                 "Je veux progresser régulièrement",
@@ -104,15 +114,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const answersContainerEl = document.getElementById('answers-container');
     const prevButtonEl = document.getElementById('btn-previous');
     const currentStepEl = document.getElementById('current-step');
+    const imagePlaceholderEl = document.querySelector('.image-placeholder');
 
     // Fonction pour charger une question
     function loadQuestion(index) {
         const currentData = questionsData[index];
 
+        // 1. Mise à jour du texte
         questionTextEl.textContent = `Question ${index + 1} : ${currentData.question}`;
         currentStepEl.textContent = index + 1;
-        answersContainerEl.innerHTML = '';
 
+        // 2. Mise à jour de l'image
+        // On vide le conteneur puis on ajoute l'image
+        imagePlaceholderEl.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = currentData.image;
+        img.alt = `Illustration pour la question ${index + 1}`;
+        img.classList.add('question-image'); // Classe CSS pour le style
+        imagePlaceholderEl.appendChild(img);
+
+        // 3. Création des boutons de réponse
+        answersContainerEl.innerHTML = '';
         currentData.answers.forEach((answer, i) => {
             const button = document.createElement('button');
             button.classList.add('btn-answer');
@@ -122,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
             answersContainerEl.appendChild(button);
         });
 
-        // Gestion du bouton précédent
+        // 4. Gestion du bouton précédent
         if (index === 0) {
             prevButtonEl.style.display = 'none';
         } else {
