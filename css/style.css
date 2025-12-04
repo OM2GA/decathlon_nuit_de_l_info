@@ -84,6 +84,8 @@ body {
     font-weight: 700;
     color: var(--decathlon-dark);
     margin-bottom: 20px;
+    min-height: 60px;
+    /* Evite le saut de page si le texte change de longueur */
 }
 
 .answers-container {
@@ -104,7 +106,9 @@ body {
     text-align: left;
     cursor: pointer;
     transition: all 0.3s ease;
-    max-width: 350px;
+    max-width: 450px;
+    /* Augmenté légèrement pour accommoder les textes longs */
+    width: 100%;
 }
 
 .btn-answer:hover {
@@ -171,10 +175,6 @@ body {
     .image-placeholder {
         height: 250px;
         margin-top: 30px;
-    }
-
-    .btn-answer {
-        max-width: 100%;
     }
 }
 
