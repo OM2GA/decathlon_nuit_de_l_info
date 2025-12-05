@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conseils Personnalisés - Decathlon</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        /* Style pour mettre en valeur le profil ciblé lors du scroll */
         section:target {
             animation: highlight 2s ease-out;
-            border-left: 5px solid var(--decathlon-blue);
-            padding-left: 15px;
+            border-left: 8px solid var(--decathlon-blue);
+            padding-left: 20px;
         }
 
         @keyframes highlight {
             0% {
-                background-color: rgba(54, 67, 186, 0.2);
+                background-color: rgba(54, 67, 186, 0.1);
             }
 
             100% {
@@ -29,14 +32,71 @@
         .profile-section {
             margin-bottom: 60px;
             padding-top: 20px;
-            /* Espace pour l'ancre */
         }
 
         .profile-header {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
+            background-color: #f0f1f3;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--decathlon-blue);
+        }
+
+        .profile-title {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+            color: var(--decathlon-blue);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .exercises-gallery {
+            margin-top: 25px;
+        }
+
+        .exercises-gallery h5 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--decathlon-blue);
             margin-bottom: 20px;
+        }
+
+        .exercises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .exercise-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(54, 67, 186, 0.2);
+        }
+
+        .exercise-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .exercise-card .exercise-name {
+            padding: 12px 15px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 3px solid var(--decathlon-blue);
         }
     </style>
 </head>
@@ -70,53 +130,86 @@
 
     <main class="main-content">
         <div class="container">
-            <h1 class="page-title text-center mb-5">Vos Instructions Personnalisées</h1>
-            <p class="text-center lead mb-5">Voici les programmes adaptés aux différents profils sportifs.</p>
+            <h1 class="page-title text-center mb-5">Vos Instructions</h1>
+            <p class="text-center lead mb-5" style="font-family: 'Roboto', sans-serif;">Voici les programmes adaptés aux
+                différents profils sportifs.</p>
 
             <section id="profil-a" class="profile-section">
                 <div class="profile-header">
-                    <h2 style="color: var(--decathlon-blue);">PROFIL A — Débutant</h2>
-                    <h4 class="text-muted">Remise en forme / activité douce / faible intensité</h4>
+                    <h2 class="profile-title">PROFIL A — Débutant</h2>
+                    <h4 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 700;">Remise
+                        en forme / activité douce / faible intensité</h4>
                 </div>
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <h5 class="fw-bold text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">🎯
+                            Objectif</h5>
                         <p class="card-text">Reprendre en douceur, sans impact, en installant les bonnes bases.</p>
 
                         <hr>
 
-                        <h5 class="fw-bold mt-4">📝 Instructions personnalisées</h5>
+                        <h5 class="fw-bold mt-4 text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">📝
+                            Instructions personnalisées</h5>
                         <ul>
                             <li>Garde un rythme lent et régulier, sans chercher à aller trop vite.</li>
                             <li>Garde une posture stable : dos aligné, épaules détendues et regard droit devant toi.
                             </li>
                             <li>Respire naturellement, en accompagnant chaque mouvement avec une inspiration et une
                                 expiration fluides.</li>
-                            <li>Si un exercice te paraît difficile ou instable, réduit l’amplitude ou ralentis pour
+                            <li>Si un exercice te paraît difficile ou instable, réduit l'amplitude ou ralentis pour
                                 rester en contrôle.</li>
-                            <li>Contente-toi de formats courts : 20 à 30 secondes d’effort ou 6 à 8 répétitions
+                            <li>Contente-toi de formats courts : 20 à 30 secondes d'effort ou 6 à 8 répétitions
                                 suffisent largement.</li>
                             <li>Fais une petite pause de 10 à 20 secondes dès que tu en ressens le besoin.</li>
                             <li>Privilégie des mouvements très accessibles : demi-squats, fentes statiques, gainage sur
                                 les genoux, exercices de mobilité simples.</li>
                         </ul>
+
+                        <div class="exercises-gallery">
+                            <h5>💪 Exercices recommandés</h5>
+                            <div class="exercises-grid">
+                                <div class="exercise-card">
+                                    <img src="../images/crunch_A.png" alt="Crunch">
+                                    <div class="exercise-name">Crunch</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/fentes_A.png" alt="Fentes statiques">
+                                    <div class="exercise-name">Fentes statiques</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/gainage_genoux_A.png" alt="Gainage sur genoux">
+                                    <div class="exercise-name">Gainage sur genoux</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/hip_bridge_A.png" alt="Hip Bridge">
+                                    <div class="exercise-name">Hip Bridge</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="profil-b" class="profile-section">
                 <div class="profile-header">
-                    <h2 style="color: var(--decathlon-blue);">PROFIL B — Intermédiaire</h2>
-                    <h4 class="text-muted">Amélioration générale / cardio + renfo / intensité modérée</h4>
+                    <h2 class="profile-title">PROFIL B — Intermédiaire</h2>
+                    <h4 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 700;">
+                        Amélioration générale / cardio + renfo / intensité modérée</h4>
                 </div>
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <h5 class="fw-bold text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">🎯
+                            Objectif</h5>
                         <p class="card-text">Progresser régulièrement, renforcement + cardio léger.</p>
 
                         <hr>
 
-                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <h5 class="fw-bold mt-4 text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">📝
+                            Instructions essentielles</h5>
                         <ul>
                             <li>Garde une cadence fluide, peu de pauses.</li>
                             <li>Engage les abdos pour stabiliser la posture.</li>
@@ -126,48 +219,102 @@
                             <li>Mélange renfo + cardio : squats, fentes, planche, montées de genoux.</li>
                             <li>Haltères : charge maîtrisée pour garder la technique.</li>
                         </ul>
+
+                        <div class="exercises-gallery">
+                            <h5>💪 Exercices recommandés</h5>
+                            <div class="exercises-grid">
+                                <div class="exercise-card">
+                                    <img src="../images/squat_B.png" alt="Squat">
+                                    <div class="exercise-name">Squat</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/fentes_B.png" alt="Fentes dynamiques">
+                                    <div class="exercise-name">Fentes dynamiques</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/planche_B.png" alt="Planche">
+                                    <div class="exercise-name">Planche</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/bycicle_crunch_B.png" alt="Bicycle Crunch">
+                                    <div class="exercise-name">Bicycle Crunch</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="profil-c" class="profile-section">
                 <div class="profile-header">
-                    <h2 style="color: var(--decathlon-blue);">PROFIL C — Avancé</h2>
-                    <h4 class="text-muted">Performance physique / musculation ou HIIT contrôlé / intensité élevée</h4>
+                    <h2 class="profile-title">PROFIL C — Avancé</h2>
+                    <h4 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 700;">
+                        Performance physique / musculation ou HIIT contrôlé / intensité élevée</h4>
                 </div>
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <h5 class="fw-bold text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">🎯
+                            Objectif</h5>
                         <p class="card-text">Développer force, puissance ou HIIT contrôlé.</p>
 
                         <hr>
 
-                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <h5 class="fw-bold mt-4 text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">📝
+                            Instructions essentielles</h5>
                         <ul>
                             <li>Utilise un tempo précis : 3 sec descente / 1 sec pause / montée explosive.</li>
                             <li>Garde un gainage fort pour protéger le dos.</li>
                             <li>Travaille en amplitude complète.</li>
                             <li>Formats : 12–15 reps ou 40–60 sec.</li>
                             <li>En HIIT : technique impeccable même fatigué.</li>
-                            <li>Ajuste l’intensité : charge, hauteur des sauts, temps d’effort, récup 20–30 sec.</li>
+                            <li>Ajuste l'intensité : charge, hauteur des sauts, temps d'effort, récup 20–30 sec.</li>
                         </ul>
+
+                        <div class="exercises-gallery">
+                            <h5>💪 Exercices recommandés</h5>
+                            <div class="exercises-grid">
+                                <div class="exercise-card">
+                                    <img src="../images/squat_poids_C.png" alt="Squat avec poids">
+                                    <div class="exercise-name">Squat avec poids</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/fentes_C.png" alt="Fentes avec charge">
+                                    <div class="exercise-name">Fentes avec charge</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/pompes_C.png" alt="Pompes">
+                                    <div class="exercise-name">Pompes</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/halteres_C.png" alt="Exercice haltères">
+                                    <div class="exercise-name">Exercice haltères</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="profil-d" class="profile-section">
                 <div class="profile-header">
-                    <h2 style="color: var(--decathlon-blue);">PROFIL D — Expert</h2>
-                    <h4 class="text-muted">Optimisation / compétition / matériel avancé</h4>
+                    <h2 class="profile-title">PROFIL D — Expert</h2>
+                    <h4 class="text-muted" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 700;">
+                        Optimisation / compétition / matériel avancé</h4>
                 </div>
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">🎯 Objectif</h5>
+                        <h5 class="fw-bold text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">🎯
+                            Objectif</h5>
                         <p class="card-text">Maximiser la performance, travail technique avancé.</p>
 
                         <hr>
 
-                        <h5 class="fw-bold mt-4">📝 Instructions essentielles</h5>
+                        <h5 class="fw-bold mt-4 text-uppercase mb-3"
+                            style="font-family: 'Roboto Condensed', sans-serif; color: var(--decathlon-blue);">📝
+                            Instructions essentielles</h5>
                         <ul>
                             <li>Un objectif clair par séance (force, puissance, technique).</li>
                             <li>Échauffement en 3 phases : mobilité → activation → charge progressive.</li>
@@ -177,6 +324,28 @@
                             <li>Note les performances pour suivre la progression.</li>
                             <li>Priorité absolue : qualité technique à chaque répétition.</li>
                         </ul>
+
+                        <div class="exercises-gallery">
+                            <h5>💪 Exercices recommandés</h5>
+                            <div class="exercises-grid">
+                                <div class="exercise-card">
+                                    <img src="../images/squat_D.png" alt="Squat avancé">
+                                    <div class="exercise-name">Squat avancé</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/dev_couche_D.png" alt="Développé couché">
+                                    <div class="exercise-name">Développé couché</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/traction_D.png" alt="Tractions">
+                                    <div class="exercise-name">Tractions</div>
+                                </div>
+                                <div class="exercise-card">
+                                    <img src="../images/dips_D.png" alt="Dips">
+                                    <div class="exercise-name">Dips</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

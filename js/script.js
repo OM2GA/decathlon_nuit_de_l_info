@@ -1,8 +1,8 @@
-// Questionnaire Decathlon - JavaScript
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Données du QCM avec les images associées
+
     const questionsData = [
         {
             question: "Quel est ton niveau sportif actuel ?",
@@ -107,44 +107,44 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     let currentQuestionIndex = 0;
-    const userAnswers = []; // Stocke les index des réponses (0, 1, 2, 3)
+    const userAnswers = [];
 
-    // Sélection des éléments du DOM
+
     const questionTextEl = document.getElementById('question-text');
     const answersContainerEl = document.getElementById('answers-container');
     const prevButtonEl = document.getElementById('btn-previous');
     const currentStepEl = document.getElementById('current-step');
     const imagePlaceholderEl = document.querySelector('.image-placeholder');
 
-    // Fonction pour charger une question
+
     function loadQuestion(index) {
         const currentData = questionsData[index];
 
-        // 1. Mise à jour du texte
+
         questionTextEl.textContent = `Question ${index + 1} : ${currentData.question}`;
         currentStepEl.textContent = index + 1;
 
-        // 2. Mise à jour de l'image
-        // On vide le conteneur puis on ajoute l'image
+
+
         imagePlaceholderEl.innerHTML = '';
         const img = document.createElement('img');
         img.src = currentData.image;
         img.alt = `Illustration pour la question ${index + 1}`;
-        img.classList.add('question-image'); // Classe CSS pour le style
+        img.classList.add('question-image');
         imagePlaceholderEl.appendChild(img);
 
-        // 3. Création des boutons de réponse
+
         answersContainerEl.innerHTML = '';
         currentData.answers.forEach((answer, i) => {
             const button = document.createElement('button');
             button.classList.add('btn-answer');
             button.textContent = answer;
-            // On passe l'index de la réponse (0 pour A, 1 pour B...)
+
             button.addEventListener('click', () => handleAnswerClick(i));
             answersContainerEl.appendChild(button);
         });
 
-        // 4. Gestion du bouton précédent
+
         if (index === 0) {
             prevButtonEl.style.display = 'none';
         } else {
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Gestion du clic sur une réponse
+
     function handleAnswerClick(selectedIndex) {
         userAnswers.push(selectedIndex);
 
@@ -164,24 +164,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Gestion du bouton précédent (Annuler l'action)
+
     prevButtonEl.addEventListener('click', function () {
         if (currentQuestionIndex > 0) {
-            userAnswers.pop(); // Retire la dernière réponse du tableau
+            userAnswers.pop();
             currentQuestionIndex--;
             loadQuestion(currentQuestionIndex);
         }
     });
 
-    // Fonction finale : calcul et redirection
+
     function finishQuiz() {
-        // 1. Calculer le profil majoritaire
-        let counts = [0, 0, 0, 0]; // [A, B, C, D]
+
+        let counts = [0, 0, 0, 0];
         userAnswers.forEach(index => {
             if (index >= 0 && index <= 3) counts[index]++;
         });
 
-        // Trouver l'index gagnant
+
         let maxScore = -1;
         let winningIndex = 0;
 
@@ -192,15 +192,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // 2. Définir les ancres correspondantes (doivent matcher les IDs dans conseils.html)
+
         const anchors = ['profil-a', 'profil-b', 'profil-c', 'profil-d'];
         const targetAnchor = anchors[winningIndex];
 
-        // 3. Redirection vers la page conseils à l'endroit précis
+
         console.log(`Profil gagnant : ${winningIndex} -> Redirection vers conseils.html#${targetAnchor}`);
         window.location.href = `conseils.html#${targetAnchor}`;
     }
 
-    // Démarrage
+
     loadQuestion(0);
 });
