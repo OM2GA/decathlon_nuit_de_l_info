@@ -21,7 +21,7 @@ Pour une expérience optimale (et pour simuler un environnement de production), 
 
 ---
 
-## 🛠 Commentaires sur la réalisation
+## Commentaires sur la réalisation
 
 ### Choix Techniques
 
